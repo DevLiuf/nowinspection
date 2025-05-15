@@ -23,8 +23,8 @@
 1. 저장소 클론하기
 
 ```bash
-git clone https://github.com/사용자명/NOW_WEB.git
-cd NOW_WEB
+git clone https://github.com/DevLiuf/nowinspection.git
+cd nowinspection
 ```
 
 2. 로컬 서버로 실행하기 (예: VSCode Live Server 등)

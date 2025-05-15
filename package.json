@@ -1,0 +1,28 @@
+{
+  "name": "nowinspection",
+  "version": "1.0.0",
+  "description": "NOW사전점검 웹사이트",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "build": "echo 'No build step required'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevLiuf/nowinspection.git"
+  },
+  "keywords": [
+    "아파트",
+    "하자점검",
+    "사전점검"
+  ],
+  "author": "NOW사전점검",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/DevLiuf/nowinspection/issues"
+  },
+  "homepage": "https://github.com/DevLiuf/nowinspection#readme",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

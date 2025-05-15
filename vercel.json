@@ -1,13 +1,10 @@
 {
-  "framework": "static",
+  "version": 2,
+  "framework": null,
   "buildCommand": null,
-  "outputDirectory": ".",
-  "public": true,
+  "outputDirectory": null,
   "cleanUrls": true,
   "trailingSlash": false,
-  "github": {
-    "silent": true
-  },
   "headers": [
     {
       "source": "/(.*)",

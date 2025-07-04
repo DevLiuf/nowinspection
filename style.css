@@ -390,81 +390,75 @@ body {
   background-color: var(--light-grey);
 }
 
-.timeline {
-  position: relative;
-  max-width: 800px;
+.procedure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.timeline::before {
+.process-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.process-card::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 100%;
-  background-color: var(--primary-color);
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
 }
 
-.timeline-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-  position: relative;
+.process-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
 }
 
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-number {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
+.process-card:hover .process-icon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
   color: white;
+}
+
+.process-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 700;
-  font-size: 1.2rem;
-  z-index: 1;
+  font-size: 2rem;
+  margin: 0 auto 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-content {
-  width: calc(50% - 50px);
-  padding: 30px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.timeline-content h3 {
-  margin-bottom: 10px;
+.process-card h3 {
+  margin-bottom: 15px;
   font-size: 1.4rem;
+  color: var(--dark-color);
+  font-weight: 600;
 }
 
-.timeline-content p {
+.process-card p {
   color: var(--grey-color);
-}
-
-.timeline-image {
-  width: calc(50% - 50px);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.timeline-image img {
-  width: 100%;
-  height: auto;
-  display: block;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin: 0;
 }
 
 /* REVIEW 섹션 */
@@ -514,16 +508,8 @@ body {
 }
 
 .review-author {
-  display: flex;
-  align-items: center;
-}
-
-.review-author img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 15px;
-  object-fit: cover;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .review-author h4 {
@@ -648,18 +634,20 @@ body {
   background-color: white;
 }
 
-.contact-container {
+.contact-info-center {
   display: flex;
-  justify-content: space-between;
-  gap: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact-info {
-  flex: 1;
+  max-width: 500px;
   background-color: var(--primary-color);
   color: white;
   padding: 40px;
-  border-radius: 10px;
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info h3 {
@@ -708,57 +696,24 @@ body {
   color: var(--primary-color);
 }
 
-.contact-form {
-  flex: 2;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  background-color: white;
-}
-
-.form-group {
-  margin-bottom: 20px;
-  width: calc(50% - 10px);
-  display: inline-block;
-  vertical-align: top;
-}
-
-.form-group.full-width {
-  width: 100%;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--light-grey);
-  border-radius: 5px;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-}
-
-.checkbox-label {
+.contact-button {
   display: flex;
-  align-items: center;
-  cursor: pointer;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
-.checkbox-label input {
-  margin-right: 10px;
-  width: auto;
+.contact-button .btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-button .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4);
 }
 
 /* 우측 고정 버튼 */
@@ -886,35 +841,24 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .timeline-item {
-    flex-direction: column;
+  .procedure-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .timeline-content,
-  .timeline-image {
-    width: 100%;
-    margin-bottom: 20px;
+  .process-card {
+    padding: 30px 25px;
   }
 
-  .timeline::before {
-    left: 20px;
+  .process-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
   }
 
-  .timeline-number {
-    left: 20px;
-  }
-
-  .timeline-content {
-    padding-left: 50px;
-  }
-
-  .contact-container {
-    flex-direction: column;
-  }
-
-  .contact-info,
-  .contact-form {
-    width: 100%;
+  .contact-info {
+    max-width: 100%;
+    padding: 30px;
   }
 
   .slide-content {
@@ -967,10 +911,6 @@ body {
 
   .proud-grid {
     grid-template-columns: 1fr;
-  }
-
-  .form-group {
-    width: 100%;
   }
 
   .footer-container {
